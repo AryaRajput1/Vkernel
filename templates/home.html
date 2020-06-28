@@ -1,0 +1,68 @@
+{% extends 'basic.html'%}
+
+{% block css%}
+<style>
+  
+    .card:hover{
+        box-shadow: black -3px 20px 26px -9px;
+        padding: 20px;
+        background-color: transparent;
+    }
+    .card{
+        
+        transition: all ease-in-out .3s;
+        padding: 20px;
+        background-color: transparent;
+    }
+    .card img{
+      object-fit: contain;
+    }
+    * {
+        box-sizing: border-box;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    img {
+        height: 15vh;
+    }
+
+    a:hover {
+
+        color: red;
+        text-decoration: none;
+
+    }
+
+    a {
+
+        color: black;
+        text-decoration: none;
+
+    }
+</style>
+{% endblock%}
+{% block body%}
+
+<div class="container">
+    <div class="row my-5 justify-content-around">
+    {% for vt in videot %}
+    
+        <div class="card border col-md-3 mt-sm-4 mt-md-0 col-sm-8 offset-sm-2 offset-md-0" >
+            <img src="/media/{{vt.vt_img}}/" class="card-img-top img-stretch" alt="">
+           
+            <div class="card-body text-center " style="font-size: 1.5em; color: black;font-weight: bold;">
+                <div class="card-text " style="color: white;">{{vt.vt_desc}} <span class="badge badge-danger"> {{vt.inMembership}}</span></div>
+                <a href="/vkernel/videoc/{{vt.vt_id}}/" class="  mt-4 card-link btn btn-outline-light" style="font-weight: bold; "> View </a>
+
+            </div>
+        </div>
+     {% if forloop.counter|divisibleby:3%}
+    </div>
+     <div class="row my-5 justify-content-around">
+         {% endif%}
+    
+    {% endfor%}
+</div>
+</div>
+{% endblock%}

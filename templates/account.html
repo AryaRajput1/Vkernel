@@ -1,0 +1,35 @@
+{% extends 'basic.html'%}
+
+{% block css%}
+<style>
+  
+    .card:hover{
+        box-shadow: black -3px 20px 45px -9px;
+        padding: 20px;
+       
+    }
+    .card{
+        box-shadow: black -3px 20px 26px -9px;
+        transition: all ease-in-out .3s;
+        padding: 20px;
+        
+    }
+    </style>
+    {% endblock%}
+{% block body%}
+
+<div class="container p-2 ">
+    <div class="row justify-content-center">
+    <div class="card  " style="background-color: transparent;width: 400px;">
+        <div class="card-body">
+            <div class="card-text" style="color:white;font-size: 1.5em;text-transform: uppercase;">
+                <span style="color: black;">Name</span> : {{user.username}}</div>
+            <div class="card-text" style="color:white;font-size: 1.5em;text-transform: uppercase;;">
+                <span style="color: black;">email</span>: {{user.email}}</div>
+            <div class="card-text" style="color:white;font-size: 1.5em;text-transform: uppercase;">
+                <span style="color: black;">Membershp</span>: {{userdata.Member}}</div>
+            <a href="/vkernel/mainpage/" class="mt-4 card-link btn btn-outline-light">explore</a>
+        </div>
+    </div></div>
+</div>
+{% endblock%}

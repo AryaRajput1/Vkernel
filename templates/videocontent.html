@@ -1,0 +1,16 @@
+{% extends 'basic.html'%}
+{% block css%}
+<style>
+   iframe{
+       height: 40vh;
+   }
+</style>
+{% endblock%}
+{% block body%}
+<div class="container">
+    <div class="row justify-content-start  pl-5 mt-3" style="font-size: 2em;">{{video.vc_desc}} </div>
+    
+    <div class="row justify-content-center mt-2">
+        
+<iframe src="{{video.vc_video}}"class="col-md-5" frameborder="1" ></iframe></div></div>
+{% endblock%}

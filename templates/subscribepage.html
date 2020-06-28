@@ -1,0 +1,72 @@
+{% extends 'basic.html'%}
+{% block css%}
+<style>
+    li {
+        list-style-type: none;
+        margin-top: 10px;
+    }
+    body{
+        color: white;
+    }
+.col-3:hover{
+        box-shadow: black -3px 20px 26px -9px;
+       
+        background-color: transparent;
+    }
+    .col-3{
+        font-size: 1.2em;
+        transition: all ease-in-out .3s;
+        box-shadow: black -3px 20px 26px -15px;
+        background-color: transparent;
+    }
+</style>
+{% endblock%}
+{% block body%}
+
+<div class="container p-3">
+    {% if messages%}
+    {% for m in messages %}
+    <div class="alert alert-{{m.tags}} alert-dismissible fade show" role="alert">
+        <strong>Hey Bro!</strong> {{m}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor%}
+    {% endif%}
+    <div class="row  justify-content-around mt-4">
+        <div class="col-md-3  mb-4 p-3 border">
+            <h4 class="text-center">{{Basic.catagory}}</h4>
+            <ul class="list-group">
+                <li>songs</li>
+                <li>hindi movies</li>
+                <li>basic study material</li>
+            </ul>
+            <div class="row justify-content-center mt-4" style="font-size:1.3em;font-weight: lighter;">{{Basic.price_month}}/month or {{Basic.price_year}}/year</div>
+            <div class="row mt-4 justify-content-center"><a href="/vkernel/PaymentPage/{{Basic.m_id}}/" class="btn btn-outline-light ">BUY</a></div>
+        </div>
+        <div class="col-md-3  mb-4 border p-3">
+            <h4 class="text-center">{{Premium.catagory}}</h4>
+            <ul class="list-group">
+                <li>Basic plan+</li>
+                <li>english movies</li>
+                <li>comedy</li>
+                <li>unlimited download song</li>
+            </ul>  <div class="row justify-content-center mt-4" style="font-size:1.3em;font-weight: lighter;">{{Premium.price_month}}/month or {{Premium.price_year}}/year</div>
+            <div class="row mt-4 justify-content-center"><a href="/vkernel/PaymentPage/{{Premium.m_id}}/" class="btn btn-outline-light">BUY</a></div>
+        </div>
+        <div class="col-md-3  mb-4 border p-3">
+            <h4 class="text-center">{{Emperor.catagory}}</h4>
+            <ul class="list-group">
+                <li>Primium plan +</li>
+                <li>English drama</li>
+                <li>unlimited download movies</li>
+                <li>emperor gift on ocassion</li>
+                <li>shopping bouchers</li>
+            </ul>
+            <div class="row justify-content-center mt-4" style="font-size:1.3em;font-weight: lighter;">{{Emperor.price_month}}/month or {{Emperor.price_year}}/year</div>
+            <div class="row mt-4 justify-content-center"><a href="/vkernel/PaymentPage/{{Emperor.m_id}}/" class="btn btn-outline-light ">BUY</a></div>
+        </div>
+    </div>
+</div>
+{% endblock%}
